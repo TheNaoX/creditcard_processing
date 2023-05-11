@@ -11,6 +11,7 @@ module CreditcardProcessing
       end
 
       def charge(amount)
+        return if @balance + amount > limit
         @balance = @balance + amount
       end
 
