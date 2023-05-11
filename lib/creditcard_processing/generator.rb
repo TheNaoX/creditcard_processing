@@ -7,10 +7,10 @@ module CreditcardProcessing
     COMMANDS_REGEX = {
       add: /add (?<card_name>\w+) (?<card_number>\d+) \$(?<limit>\w+)/i,
       charge: /charge (?<card_name>\w+) \$(?<amount>\d+)/i,
-      credit: /credit (?<card_name>\w+) \$(?<amount>\d+)/i,
-    }
+      credit: /credit (?<card_name>\w+) \$(?<amount>\d+)/i
+    }.freeze
 
-    ALLOWED_COMMANDS = %w[add charge credit]
+    ALLOWED_COMMANDS = %w[add charge credit].freeze
 
     def initialize(input)
       @input = input
@@ -42,8 +42,10 @@ module CreditcardProcessing
     def symbolize_keys(data)
       symbolized = {}
 
-      data.each do |k, v|
-        symbolized[k.to_sym] = v
+      numerical_keys = ['limit', 'amount']
+
+      data.each do |key, value|
+        symbolized[key.to_sym] = numerical_keys.include?(key) ? value.to_i : value
       end
 
       symbolized

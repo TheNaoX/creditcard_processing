@@ -7,6 +7,7 @@ require 'creditcard_processing/commands/charge'
 require 'creditcard_processing/commands/credit'
 require 'creditcard_processing/storage/credit_card'
 require 'creditcard_processing/storage/credit_cards'
+require 'creditcard_processing/runner'
 
 module CreditcardProcessing
   module_function

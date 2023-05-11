@@ -22,14 +22,12 @@ Metrics/BlockLength:
 # Offense count: 8
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'lib/creditcard_processing.rb'
-    - 'lib/creditcard_processing/card_validator.rb'
-    - 'lib/creditcard_processing/commands/add.rb'
-    - 'lib/creditcard_processing/commands/charge.rb'
-    - 'lib/creditcard_processing/commands/credit.rb'
-    - 'lib/creditcard_processing/parser.rb'
-    - 'lib/creditcard_processing/storage/credit_card.rb'
-    - 'lib/creditcard_processing/storage/credit_cards.rb'
