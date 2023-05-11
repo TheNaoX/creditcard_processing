@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CreditcardProcessing
   class Parser
     OPERATION_REGEX = /(\w+) (\w+) (\d+) (\$\w+)/
