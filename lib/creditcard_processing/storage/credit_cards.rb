@@ -7,8 +7,6 @@ module CreditcardProcessing
 
       private_class_method :new
 
-      CreditCard = Struct.new(:name, :number, :limit, :balance)
-
       attr_reader :credit_cards
 
       def initialize
@@ -16,7 +14,15 @@ module CreditcardProcessing
       end
 
       def add(name:, number:, limit:)
-        @credit_cards[name] ||= CreditCard.new(name, number, limit, 0)
+        @credit_cards[name] ||= CreditCard.new(
+          name: name,
+          number: number,
+          limit: limit
+        )
+      end
+
+      def get_by(name:)
+        @credit_cards[name]
       end
     end
   end
