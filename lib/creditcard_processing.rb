@@ -12,5 +12,13 @@ require 'creditcard_processing/runner'
 module CreditcardProcessing
   module_function
 
-  def run; end
+  def run(input)
+    runner = CreditcardProcessing::Runner.new(input)
+
+    runner.run
+  end
+
+  def credit_cards
+    CreditcardProcessing::Storage::CreditCards.instance.credit_cards
+  end
 end

@@ -50,6 +50,11 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
+  config.before :each do
+    # Clear the creditcards between test runs
+    CreditcardProcessing::Storage::CreditCards.instance.instance_variable_set(:@credit_cards, {})
+  end
+
   # The settings below are suggested to provide a good initial experience
   # with RSpec, but feel free to customize to your heart's content.
   #   # This allows you to limit a spec run to individual examples or groups

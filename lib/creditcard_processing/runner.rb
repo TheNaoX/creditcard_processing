@@ -15,7 +15,7 @@ module CreditcardProcessing
     def generate_commands(input)
       lines = input.split("\n")
 
-      lines.map do |line|
+      lines.filter_map do |line|
         generator = CreditcardProcessing::Generator.new(line)
 
         generator.generate!
