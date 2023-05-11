@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CreditcardProcessing
   module Commands
     class Add

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe CreditcardProcessing::Commands::Charge do
@@ -22,15 +24,15 @@ describe CreditcardProcessing::Commands::Charge do
       .add(
         name: 'Tom',
         number: '4111111111111111',
-        limit: 1000,
+        limit: 1000
       )
   end
 
-  describe "#execute" do
-    it "adds the charge to the credit card" do
-      expect {
+  describe '#execute' do
+    it 'adds the charge to the credit card' do
+      expect do
         subject.execute
-      }.to change(credit_card, :balance).from(0).to(500)
+      end.to change(credit_card, :balance).from(0).to(500)
     end
   end
 end

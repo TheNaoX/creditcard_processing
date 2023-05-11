@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe CreditcardProcessing::Storage::CreditCard do
@@ -12,20 +14,20 @@ describe CreditcardProcessing::Storage::CreditCard do
     }
   end
 
-  describe "#charge" do
-    context "when the amount is lower than the limit" do
-      it "changes the balance to the charged amount" do
-        expect {
+  describe '#charge' do
+    context 'when the amount is lower than the limit' do
+      it 'changes the balance to the charged amount' do
+        expect do
           subject.charge(200)
-        }.to change(subject, :balance).from(0).to(200)
+        end.to change(subject, :balance).from(0).to(200)
       end
     end
 
-    context "when the amount is greater than the limit" do
-      it "does not change the balance at all" do
-        expect {
+    context 'when the amount is greater than the limit' do
+      it 'does not change the balance at all' do
+        expect do
           subject.charge(1200)
-        }.not_to change(subject, :balance)
+        end.not_to change(subject, :balance)
       end
     end
   end

@@ -9,8 +9,7 @@ require 'creditcard_processing/storage/credit_card'
 require 'creditcard_processing/storage/credit_cards'
 
 module CreditcardProcessing
-  extend self
+  module_function
 
-  def run
-  end
+  def run; end
 end

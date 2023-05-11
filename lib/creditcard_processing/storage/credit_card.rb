@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CreditcardProcessing
   module Storage
     class CreditCard
@@ -12,11 +14,12 @@ module CreditcardProcessing
 
       def charge(amount)
         return if @balance + amount > limit
-        @balance = @balance + amount
+
+        @balance += amount
       end
 
       def credit(amount)
-        @balance = @balance - amount
+        @balance -= amount
       end
     end
   end

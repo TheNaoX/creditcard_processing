@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CreditcardProcessing
   module Storage
     class CreditCards
@@ -15,9 +17,9 @@ module CreditcardProcessing
 
       def add(name:, number:, limit:)
         @credit_cards[name] ||= CreditCard.new(
-          name: name,
-          number: number,
-          limit: limit
+          name:,
+          number:,
+          limit:
         )
       end
 
