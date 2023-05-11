@@ -3,18 +3,19 @@
 require 'spec_helper'
 
 describe CreditcardProcessing::Parser do
+  subject { described_class.new(input) }
+
   let(:input) { 'Add Tom 4111111111111111 $1000' }
 
-  subject { described_class.new(input) }
   describe '#parse' do
     context 'when the input is correct' do
       it 'returns the proper values for the expected variables of each operation' do
         expect(subject.parse).to eq({
-                                      operation: 'Add',
-                                      card_name: 'Tom',
-                                      card_number: '4111111111111111',
-                                      amount: '$1000'
-                                    })
+          commands: 'Add',
+          card_name: 'Tom',
+          card_number: '4111111111111111',
+          amount: '$1000'
+        })
       end
     end
 
