@@ -3,6 +3,8 @@
 module CreditcardProcessing
   module Commands
     class Charge
+      attr_reader :card_name, :amount
+
       def initialize(card_name:, amount:)
         @card_name = card_name
         @amount = amount
