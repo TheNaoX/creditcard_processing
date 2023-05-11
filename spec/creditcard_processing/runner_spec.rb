@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe CreditcardProcessing::Runner do
@@ -16,8 +18,8 @@ describe CreditcardProcessing::Runner do
     INPUT
   end
 
-  describe "#run" do
-    it "runs the the commands for the whole program" do
+  describe '#run' do
+    it 'runs the the commands for the whole program' do
       subject.run
 
       expect(CreditcardProcessing::Storage::CreditCards.instance.credit_cards.count).to eq 3

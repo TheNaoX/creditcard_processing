@@ -42,7 +42,7 @@ module CreditcardProcessing
     def symbolize_keys(data)
       symbolized = {}
 
-      numerical_keys = ['limit', 'amount']
+      numerical_keys = %w[limit amount]
 
       data.each do |key, value|
         symbolized[key.to_sym] = numerical_keys.include?(key) ? value.to_i : value
