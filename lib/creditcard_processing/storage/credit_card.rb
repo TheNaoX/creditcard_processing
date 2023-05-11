@@ -13,6 +13,10 @@ module CreditcardProcessing
       def charge(amount)
         @balance = @balance + amount
       end
+
+      def credit(amount)
+        @balance = @balance - amount
+      end
     end
   end
 end
