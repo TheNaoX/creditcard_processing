@@ -5,10 +5,10 @@ require 'creditcard_processing/generator'
 require 'creditcard_processing/commands/add'
 require 'creditcard_processing/commands/charge'
 require 'creditcard_processing/commands/credit'
-require 'creditcard_processing/storage/credit_cards'
-require 'creditcard_processing/storage/accounts'
 require 'creditcard_processing/storage/models/credit_card'
 require 'creditcard_processing/storage/models/account'
+require 'creditcard_processing/storage/repositories/credit_cards'
+require 'creditcard_processing/storage/repositories/accounts'
 require 'creditcard_processing/storage/validators/card_validator'
 require 'creditcard_processing/runner'
 
@@ -22,6 +22,6 @@ module CreditcardProcessing
   end
 
   def accounts
-    CreditcardProcessing::Storage::Accounts.instance.accounts.sort
+    CreditcardProcessing::Storage::Repositories::Accounts.instance.accounts.sort
   end
 end

@@ -15,7 +15,7 @@ describe CreditcardProcessing::Commands::Add do
     }
   end
 
-  let(:credit_cards_repo) { CreditcardProcessing::Storage::CreditCards.instance }
+  let(:credit_cards_repo) { CreditcardProcessing::Storage::Repositories::CreditCards.instance }
 
   describe '#execute' do
     it 'adds the credit card to the storage' do

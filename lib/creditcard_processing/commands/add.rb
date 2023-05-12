@@ -12,9 +12,9 @@ module CreditcardProcessing
       end
 
       def execute
-        Storage::Accounts.instance.add(name: @card_name)
+        Storage::Repositories::Accounts.instance.add(name: @card_name)
 
-        Storage::CreditCards.instance.add(
+        Storage::Repositories::CreditCards.instance.add(
           name: @card_name,
           number: @card_number,
           limit: @limit

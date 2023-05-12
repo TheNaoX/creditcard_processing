@@ -6,7 +6,7 @@ describe CreditcardProcessing::Storage::Models::Account do
   describe '#credit_card' do
     context 'when the credit_card exists' do
       before do
-        CreditcardProcessing::Storage::CreditCards.instance.add(
+        CreditcardProcessing::Storage::Repositories::CreditCards.instance.add(
           name: 'Tom',
           number: '4111111111111111',
           limit: 1000
@@ -32,7 +32,7 @@ describe CreditcardProcessing::Storage::Models::Account do
   describe '#balance' do
     context 'when the credit_card exists' do
       before do
-        CreditcardProcessing::Storage::CreditCards.instance.add(
+        CreditcardProcessing::Storage::Repositories::CreditCards.instance.add(
           name: 'Tom',
           number: '4111111111111111',
           limit: 1000

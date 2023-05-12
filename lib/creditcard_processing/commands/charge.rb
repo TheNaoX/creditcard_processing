@@ -11,7 +11,7 @@ module CreditcardProcessing
       end
 
       def execute
-        account = Storage::Accounts.instance.get_by(name: @card_name)
+        account = Storage::Repositories::Accounts.instance.get_by(name: @card_name)
 
         return if account.nil?
 

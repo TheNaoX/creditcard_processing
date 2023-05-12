@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe CreditcardProcessing::Storage::Accounts do
+describe CreditcardProcessing::Storage::Repositories::Accounts do
   subject { described_class.instance }
 
   describe '#add' do

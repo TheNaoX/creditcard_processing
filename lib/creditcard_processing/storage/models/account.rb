@@ -11,7 +11,7 @@ module CreditcardProcessing
         end
 
         def credit_card
-          CreditCards.instance.credit_cards[name]
+          Repositories::CreditCards.instance.credit_cards[name]
         end
 
         def balance

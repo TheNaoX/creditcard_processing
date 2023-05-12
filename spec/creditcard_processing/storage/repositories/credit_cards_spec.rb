@@ -2,11 +2,11 @@
 
 require 'spec_helper'
 
-describe CreditcardProcessing::Storage::CreditCards do
+describe CreditcardProcessing::Storage::Repositories::CreditCards do
   subject { described_class.instance }
 
   describe '.instance' do
-    it 'returns an instance of the CreditCards repository' do
+    it 'returns an instance of the Repositories::CreditCards repository' do
       expect(subject).to be_kind_of described_class
     end
 

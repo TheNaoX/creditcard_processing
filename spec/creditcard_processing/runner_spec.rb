@@ -22,10 +22,10 @@ describe CreditcardProcessing::Runner do
     it 'adds the associated entities with the transactions' do
       subject.run
 
-      expect(CreditcardProcessing::Storage::Accounts.instance.accounts.count).to eq 3
+      expect(CreditcardProcessing::Storage::Repositories::Accounts.instance.accounts.count).to eq 3
 
       # Quincy's credit card is not added because the number is invalid
-      expect(CreditcardProcessing::Storage::CreditCards.instance.credit_cards.count).to eq 2
+      expect(CreditcardProcessing::Storage::Repositories::CreditCards.instance.credit_cards.count).to eq 2
     end
 
     context 'when some of the input is incorrect' do
@@ -45,7 +45,7 @@ describe CreditcardProcessing::Runner do
       it 'only performs the correct commands without crashing' do
         subject.run
 
-        expect(CreditcardProcessing::Storage::Accounts.instance.accounts.count).to eq 2
+        expect(CreditcardProcessing::Storage::Repositories::Accounts.instance.accounts.count).to eq 2
       end
     end
   end

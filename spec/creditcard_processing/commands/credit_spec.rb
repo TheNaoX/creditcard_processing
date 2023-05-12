@@ -15,7 +15,7 @@ describe CreditcardProcessing::Commands::Credit do
   end
 
   let(:credit_card) do
-    CreditcardProcessing::Storage::CreditCards
+    CreditcardProcessing::Storage::Repositories::CreditCards
       .instance
       .get_by(name: input[:card_name])
   end
