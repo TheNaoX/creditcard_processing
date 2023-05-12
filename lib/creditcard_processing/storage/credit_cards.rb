@@ -16,7 +16,7 @@ module CreditcardProcessing
       end
 
       def add(name:, number:, limit:)
-        @credit_cards[name] ||= CreditCard.new(
+        @credit_cards[name] ||= Models::CreditCard.new(
           name: name,
           number: number,
           limit: limit

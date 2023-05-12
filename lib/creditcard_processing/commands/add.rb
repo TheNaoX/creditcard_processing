@@ -12,11 +12,17 @@ module CreditcardProcessing
       end
 
       def execute
+        Storage::Users.instance.add(name: @card_name)
+
         Storage::CreditCards.instance.add(
           name: @card_name,
           number: @card_number,
           limit: @limit
         )
+      rescue Storage::Models::CreditCard::Error => e
+        ::CreditcardProcessing::Logger.info "Add Credit Card Error for #{@card_name}: #{e.message}"
+
+        false
       end
     end
   end

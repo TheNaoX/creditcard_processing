@@ -19,13 +19,11 @@ describe CreditcardProcessing::Commands::Charge do
   end
 
   before do
-    CreditcardProcessing::Storage::CreditCards
-      .instance
-      .add(
-        name: 'Tom',
-        number: '4111111111111111',
-        limit: 1000
-      )
+    CreditcardProcessing::Commands::Add.new(
+      card_name: 'Tom',
+      card_number: '4111111111111111',
+      limit: 1000
+    ).execute
   end
 
   describe '#execute' do

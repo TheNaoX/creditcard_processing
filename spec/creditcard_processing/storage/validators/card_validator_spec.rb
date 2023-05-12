@@ -30,7 +30,7 @@ INVALID_CARD_NUMBERS = %w[
   1234567890123451
 ].freeze
 
-describe CreditcardProcessing::CardValidator do
+describe CreditcardProcessing::Storage::Validators::CardValidator do
   describe '#valid?' do
     context 'when using a valid credit card' do
       CARD_NUMBERS.each do |card_number|
