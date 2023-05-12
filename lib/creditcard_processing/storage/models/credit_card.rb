@@ -3,20 +3,21 @@
 module CreditcardProcessing
   module Storage
     class CreditCard
-      attr_reader :name, :number, :limit, :balance, :status
+      attr_reader :name, :number, :limit, :balance
 
-      def initialize(name:, number:, limit:, balance: 0, status: nil)
+      class Error < StandardError; end
+
+      def initialize(name:, number:, limit:, balance: 0)
         @name = name
         @number = number
         @limit = limit
         @balance = balance
-        @status = status
 
         validate_card!
       end
 
       def charge(amount)
-        return if @balance + amount > limit
+        raise Error, 'Declined transaction' if @balance + amount > limit
 
         @balance += amount
       end
@@ -25,19 +26,10 @@ module CreditcardProcessing
         @balance -= amount
       end
 
-      def balance_with_status
-        return balance if status.nil?
-
-        status
-      end
-
       private
 
       def validate_card!
-        return if valid_card?
-
-        @status = 'error'
-        @limit = 0
+        raise Error, "#{@number} is an invalid card number" unless valid_card?
       end
 
       def valid_card?
