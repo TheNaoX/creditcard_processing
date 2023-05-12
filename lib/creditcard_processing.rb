@@ -19,6 +19,6 @@ module CreditcardProcessing
   end
 
   def credit_cards
-    CreditcardProcessing::Storage::CreditCards.instance.credit_cards
+    CreditcardProcessing::Storage::CreditCards.instance.credit_cards.sort
   end
 end

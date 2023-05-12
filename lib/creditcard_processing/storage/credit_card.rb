@@ -5,7 +5,7 @@ module CreditcardProcessing
     class CreditCard
       attr_reader :name, :number, :limit, :balance, :status
 
-      def initialize(name:, number:, limit:, balance: 0, status: '')
+      def initialize(name:, number:, limit:, balance: 0, status: nil)
         @name = name
         @number = number
         @limit = limit
@@ -25,12 +25,18 @@ module CreditcardProcessing
         @balance -= amount
       end
 
+      def balance_with_status
+        return balance if status.nil?
+
+        status
+      end
+
       private
 
       def validate_card!
         return if valid_card?
 
-        @status = 'Invalid Card'
+        @status = 'error'
         @limit = 0
       end
 

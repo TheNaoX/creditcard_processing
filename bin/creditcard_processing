@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('lib')
+
+require 'pry'
+
+require 'creditcard_processing'
+
+input = STDIN.read
+
+CreditcardProcessing.run(input)
+
+CreditcardProcessing.credit_cards.each do |name, card|
+  puts "#{name}: #{card.balance_with_status}"
+end
