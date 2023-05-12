@@ -2,11 +2,11 @@
 
 ## Programming Language Choice: Ruby
 
-I chose ruby as the programming language for this code challenge, because it's the programming lanaguage in which I have the most experience and I enjoy working the most.
+I chose [Ruby](https://www.ruby-lang.org/en/) as the programming language for this code challenge because it's the programming lanaguage in which I have the most experience and I enjoy working the most.
 
 It's Object-Oriented implementation allows me to structure the code as business driven entities that will allow the program to execute while having a good design.
 
-Additionally I chose RSpec for testing because its expressive driven DSL allows to write and organize tests very well by different context scenarios.
+Additionally I chose [RSpec](https://rspec.info/) for testing because its expressive driven DSL enables to write and descriptive tests.
 
 ## How to Install
 
