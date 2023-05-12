@@ -25,7 +25,7 @@ describe CreditcardProcessing::Runner do
       expect(CreditcardProcessing::Storage::CreditCards.instance.credit_cards.count).to eq 3
     end
 
-    context "when some of the input is incorrect" do
+    context 'when some of the input is incorrect' do
       let(:input) do
         <<~INPUT
           Adds Tom 4111111111111111 $1000
@@ -39,7 +39,7 @@ describe CreditcardProcessing::Runner do
         INPUT
       end
 
-      it "only performs the correct commands without crashing" do
+      it 'only performs the correct commands without crashing' do
         subject.run
 
         expect(CreditcardProcessing::Storage::CreditCards.instance.credit_cards.count).to eq 2

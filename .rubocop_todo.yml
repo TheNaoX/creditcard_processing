@@ -18,6 +18,9 @@ Layout/FirstHashElementIndentation:
 # AllowedMethods: refine
 Metrics/BlockLength:
   Max: 30
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
 
 # Offense count: 8
 # Configuration parameters: AllowedConstants.
@@ -26,8 +29,3 @@ Style/Documentation:
 
 Style/HashSyntax:
   Enabled: false
-
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'

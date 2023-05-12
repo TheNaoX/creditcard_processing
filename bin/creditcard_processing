@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 $LOAD_PATH.unshift File.expand_path('lib')
 
@@ -7,10 +8,10 @@ require 'creditcard_processing'
 file_name = ARGV[0]
 
 input = if file_name.nil?
-  STDIN.read
-else
-  File.read(file_name)
-end
+          $stdin.read
+        else
+          File.read(file_name)
+        end
 
 CreditcardProcessing.run(input)
 

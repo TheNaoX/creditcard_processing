@@ -14,7 +14,7 @@ module CreditcardProcessing
         [(even * 2).divmod(10), odd || 0]
       end.flatten.inject(:+)
 
-      check.zero? ? (sum % 10).zero? : (10 - sum % 10) == check
+      check.zero? ? (sum % 10).zero? : ((10 - sum) % 10) == check
     end
   end
 end
