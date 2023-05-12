@@ -6,7 +6,17 @@ require 'pry'
 
 require 'creditcard_processing'
 
-input = STDIN.read
+puts STDIN.stat.size
+
+input = if STDIN.stat.size > 0
+  STDIN.read
+else
+  commands = []
+
+  commands = gets.chomp
+
+  commands.join("\n")
+end
 
 CreditcardProcessing.run(input)
 
