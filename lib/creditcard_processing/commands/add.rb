@@ -20,7 +20,7 @@ module CreditcardProcessing
           limit: @limit
         )
       rescue Storage::Models::CreditCard::Error => e
-        ::CreditcardProcessing::Logger.info "Add Credit Card Error for #{@card_name}: #{e.message}"
+        ::CreditcardProcessing::Logger.info e.message
 
         false
       end

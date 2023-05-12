@@ -21,7 +21,7 @@ module CreditcardProcessing
 
         credit_card.charge(@amount)
       rescue Storage::Models::CreditCard::Error => e
-        ::CreditcardProcessing::Logger.info "Unable to charge #{@card_name}: #{e.message}"
+        ::CreditcardProcessing::Logger.info e.message
 
         false
       end
