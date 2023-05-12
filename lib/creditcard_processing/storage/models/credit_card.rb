@@ -34,7 +34,7 @@ module CreditcardProcessing
         end
 
         def valid_card?
-          CardValidator.new(@number).valid?
+          Storage::Validators::CardValidator.new(@number).valid?
         end
       end
     end

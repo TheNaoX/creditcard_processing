@@ -5,6 +5,8 @@ $LOAD_PATH.unshift File.expand_path('lib')
 
 require 'creditcard_processing'
 
+CreditcardProcessing::Logger.level = Logger::ERROR
+
 file_name = ARGV[0]
 
 input = if file_name.nil?
