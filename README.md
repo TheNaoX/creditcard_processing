@@ -28,6 +28,7 @@ The project use in-memory storage for runtime operations, all the code related t
 **Models**
 
 * `Account` - Represents the entity of the account holder, at the moment its only its name
+  * It has one `CreditCard` associated by `name`
 * `CreditCard` - Represents the entity of a credit card, alongside with its balance and limit
   * It has the ability perform charges and credits on itself
   * It validates the `card_number` by calling the `CardValidator` which implements the Luhn 10 algorithm check
