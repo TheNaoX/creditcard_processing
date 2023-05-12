@@ -11,11 +11,19 @@ module CreditcardProcessing
       end
 
       def execute
-        credit_card = Storage::CreditCards.instance.get_by(name: @card_name)
+        user = Storage::Users.instance.get_by(name: @card_name)
+
+        return if user.nil?
+
+        credit_card = user.credit_card
 
         return if credit_card.nil?
 
         credit_card.charge(@amount)
+      rescue Storage::Models::CreditCard::Error => e
+        puts "Unable to charge #{@card_name}: #{e.message}"
+
+        false
       end
     end
   end

@@ -2,38 +2,40 @@
 
 module CreditcardProcessing
   module Storage
-    class CreditCard
-      attr_reader :name, :number, :limit, :balance
+    module Models
+      class CreditCard
+        attr_reader :name, :number, :limit, :balance
 
-      class Error < StandardError; end
+        class Error < StandardError; end
 
-      def initialize(name:, number:, limit:, balance: 0)
-        @name = name
-        @number = number
-        @limit = limit
-        @balance = balance
+        def initialize(name:, number:, limit:, balance: 0)
+          @name = name
+          @number = number
+          @limit = limit
+          @balance = balance
 
-        validate_card!
-      end
+          validate_card!
+        end
 
-      def charge(amount)
-        raise Error, 'Declined transaction' if @balance + amount > limit
+        def charge(amount)
+          raise Error, 'Declined transaction, card limit reached' if @balance + amount > limit
 
-        @balance += amount
-      end
+          @balance += amount
+        end
 
-      def credit(amount)
-        @balance -= amount
-      end
+        def credit(amount)
+          @balance -= amount
+        end
 
-      private
+        private
 
-      def validate_card!
-        raise Error, "#{@number} is an invalid card number" unless valid_card?
-      end
+        def validate_card!
+          raise Error, "#{@number} is an invalid card number" unless valid_card?
+        end
 
-      def valid_card?
-        CardValidator.new(@number).valid?
+        def valid_card?
+          CardValidator.new(@number).valid?
+        end
       end
     end
   end

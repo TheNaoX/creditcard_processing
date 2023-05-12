@@ -19,7 +19,7 @@ module CreditcardProcessing
           number: @card_number,
           limit: @limit
         )
-      rescue Storage::CreditCard::Error => e
+      rescue Storage::Models::CreditCard::Error => e
         puts "Add Credit Card Error for #{@card_name}: #{e.message}"
 
         false

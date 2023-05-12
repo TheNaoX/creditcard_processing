@@ -53,6 +53,7 @@ RSpec.configure do |config|
   config.before :each do
     # Clear the creditcards between test runs
     CreditcardProcessing::Storage::CreditCards.instance.instance_variable_set(:@credit_cards, {})
+    CreditcardProcessing::Storage::Users.instance.instance_variable_set(:@users, {})
   end
 
   # The settings below are suggested to provide a good initial experience

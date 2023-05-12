@@ -15,6 +15,6 @@ input = if file_name.nil?
 
 CreditcardProcessing.run(input)
 
-CreditcardProcessing.credit_cards.each do |name, card|
-  puts "#{name}: #{card.balance_with_status}"
+CreditcardProcessing.users.each do |name, user|
+  puts "#{name}: #{user.balance}"
 end

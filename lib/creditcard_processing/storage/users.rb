@@ -16,7 +16,7 @@ module CreditcardProcessing
       end
 
       def add(name:)
-        @users[name] ||= User.new(name: name)
+        @users[name] ||= Models::User.new(name: name)
       end
 
       def get_by(name:)

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe CreditcardProcessing::Storage::CreditCard do
+describe CreditcardProcessing::Storage::Models::CreditCard do
   subject { described_class.new(**attributes) }
 
   let(:number) { '4111111111111111' }
@@ -29,7 +29,8 @@ describe CreditcardProcessing::Storage::CreditCard do
       it 'raises an exception' do
         expect do
           subject
-        end.to raise_error(CreditcardProcessing::Storage::CreditCard::Error, 'Invalid card number')
+        end.to raise_error(CreditcardProcessing::Storage::Models::CreditCard::Error,
+                           '12345678 is an invalid card number')
       end
     end
   end
@@ -47,7 +48,8 @@ describe CreditcardProcessing::Storage::CreditCard do
       it 'does not change the balance at all' do
         expect do
           subject.charge(1200)
-        end.to raise_error(CreditcardProcessing::Storage::CreditCard::Error, 'Declined transaction')
+        end.to raise_error(CreditcardProcessing::Storage::Models::CreditCard::Error,
+                           'Declined transaction, card limit reached')
       end
     end
   end
