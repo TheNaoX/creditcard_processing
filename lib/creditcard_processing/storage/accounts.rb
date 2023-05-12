@@ -2,25 +2,25 @@
 
 module CreditcardProcessing
   module Storage
-    class Users
+    class Accounts
       def self.instance
         @instance ||= new
       end
 
       private_class_method :new
 
-      attr_reader :users
+      attr_reader :accounts
 
       def initialize
-        @users = {}
+        @accounts = {}
       end
 
       def add(name:)
-        @users[name] ||= Models::User.new(name: name)
+        @accounts[name] ||= Models::Account.new(name: name)
       end
 
       def get_by(name:)
-        @users[name]
+        @accounts[name]
       end
     end
   end

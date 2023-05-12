@@ -3,7 +3,7 @@
 module CreditcardProcessing
   module Storage
     module Models
-      class User
+      class Account
         attr_reader :name
 
         def initialize(name:)

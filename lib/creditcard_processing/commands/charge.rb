@@ -11,11 +11,11 @@ module CreditcardProcessing
       end
 
       def execute
-        user = Storage::Users.instance.get_by(name: @card_name)
+        account = Storage::Accounts.instance.get_by(name: @card_name)
 
-        return if user.nil?
+        return if account.nil?
 
-        credit_card = user.credit_card
+        credit_card = account.credit_card
 
         return if credit_card.nil?
 

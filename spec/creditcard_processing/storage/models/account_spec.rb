@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe CreditcardProcessing::Storage::Models::User do
+describe CreditcardProcessing::Storage::Models::Account do
   describe '#credit_card' do
     context 'when the credit_card exists' do
       before do
@@ -14,17 +14,17 @@ describe CreditcardProcessing::Storage::Models::User do
       end
 
       it 'pulls it from the repository' do
-        user = described_class.new(name: 'Tom')
+        account = described_class.new(name: 'Tom')
 
-        expect(user.credit_card).to be_a(CreditcardProcessing::Storage::Models::CreditCard)
+        expect(account.credit_card).to be_a(CreditcardProcessing::Storage::Models::CreditCard)
       end
     end
 
     context 'when the credit_card does not exist' do
       it 'returns nil' do
-        user = described_class.new(name: 'Quincy')
+        account = described_class.new(name: 'Quincy')
 
-        expect(user.credit_card).to be_nil
+        expect(account.credit_card).to be_nil
       end
     end
   end
@@ -40,17 +40,17 @@ describe CreditcardProcessing::Storage::Models::User do
       end
 
       it 'returns a balance as an integer' do
-        user = described_class.new(name: 'Tom')
+        account = described_class.new(name: 'Tom')
 
-        expect(user.balance).to eq 0
+        expect(account.balance).to eq 0
       end
     end
 
     context 'when the credit_card does not exist' do
       it 'returns "error"' do
-        user = described_class.new(name: 'Quincy')
+        account = described_class.new(name: 'Quincy')
 
-        expect(user.balance).to eq 'error'
+        expect(account.balance).to eq 'error'
       end
     end
   end
