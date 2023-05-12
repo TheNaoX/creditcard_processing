@@ -21,23 +21,34 @@ CARD_NUMBERS = [
   '4915805038587737'	# Visa
 ].freeze
 
+INVALID_CARD_NUMBERS = %w[
+  1234567890123456
+  1234567890123457
+  1234567890123458
+  1234567890123459
+  1234567890123450
+  1234567890123451
+].freeze
+
 describe CreditcardProcessing::CardValidator do
-  subject { described_class.new(card_number) }
-
-  let(:card_number) { CARD_NUMBERS.sample }
-
   describe '#valid?' do
     context 'when using a valid credit card' do
-      it 'is valid' do
-        expect(subject.valid?).to be true
+      CARD_NUMBERS.each do |card_number|
+        it "#{card_number} is valid" do
+          subject = described_class.new(card_number)
+
+          expect(subject.valid?).to be true
+        end
       end
     end
 
     context 'when using an invalid credit card' do
-      let(:card_number) { '12312389987129898123908890' }
+      INVALID_CARD_NUMBERS.each do |card_number|
+        it 'returns false' do
+          subject = described_class.new(card_number)
 
-      it 'returns false' do
-        expect(subject.valid?).to be false
+          expect(subject.valid?).to be false
+        end
       end
     end
   end
