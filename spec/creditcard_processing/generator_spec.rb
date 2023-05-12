@@ -18,7 +18,7 @@ describe CreditcardProcessing::Generator do
           expect(command).to be_kind_of CreditcardProcessing::Commands::Add
           expect(command.card_name).to eq 'Tom'
           expect(command.card_number).to eq '4111111111111111'
-          expect(command.limit).to eq '1000'
+          expect(command.limit).to eq 1000
         end
       end
 
@@ -30,7 +30,7 @@ describe CreditcardProcessing::Generator do
 
           expect(command).to be_kind_of CreditcardProcessing::Commands::Charge
           expect(command.card_name).to eq 'Tom'
-          expect(command.amount).to eq '1000'
+          expect(command.amount).to eq 1000
         end
       end
 
@@ -42,7 +42,7 @@ describe CreditcardProcessing::Generator do
 
           expect(command).to be_kind_of CreditcardProcessing::Commands::Credit
           expect(command.card_name).to eq 'Tom'
-          expect(command.amount).to eq '1000'
+          expect(command.amount).to eq 1000
         end
       end
 

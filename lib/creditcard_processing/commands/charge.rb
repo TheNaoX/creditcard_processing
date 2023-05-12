@@ -13,6 +13,8 @@ module CreditcardProcessing
       def execute
         credit_card = Storage::CreditCards.instance.get_by(name: @card_name)
 
+        return if credit_card.nil?
+
         credit_card.charge(@amount)
       end
     end

@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('lib')
+
+require 'creditcard_processing'
+
+file_name = ARGV[0]
+
+input = if file_name.nil?
+  STDIN.read
+else
+  File.read(file_name)
+end
+
+CreditcardProcessing.run(input)
+
+CreditcardProcessing.credit_cards.each do |name, card|
+  puts "#{name}: #{card.balance_with_status}"
+end
