@@ -2,20 +2,14 @@
 
 $LOAD_PATH.unshift File.expand_path('lib')
 
-require 'pry'
-
 require 'creditcard_processing'
 
-puts STDIN.stat.size
+file_name = ARGV[0]
 
-input = if STDIN.stat.size > 0
+input = if file_name.nil?
   STDIN.read
 else
-  commands = []
-
-  commands = gets.chomp
-
-  commands.join("\n")
+  File.read(file_name)
 end
 
 CreditcardProcessing.run(input)
